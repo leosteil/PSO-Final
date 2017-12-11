@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
 
 {% block main %}
+	<div class="container" style="margin-top: 50px">
+		<div class="row">
+			<div class="col-md-12">
+				<p>Você está logado em área restrita</p>
+				<p>Você tem uma conta da INF ou você tem o login fornecido</p>
 
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-3">
+							<form action="http://ufsm.br">
+			    				<input type="submit" value="UFSM" />
+							</form>
+						</div>
+						<div class="col-md-3">
+							<form action="http://coral.ufsm.br/informatica/">
+			    				<input type="submit" value="INF" />
+							</form>
+						</div>
+						<div class="col-md-3">
+							<form action="http://coral.ufsm.br/bsi">
+			    				<input type="submit" value="SI" />
+							</form>
+						</div>
+						<div class="col-md-3">
+							<form action="http://coral.ufsm.br/computacao/">
+		    					<input type="submit" value="CC" />
+							</form>
+						</div>
+					</div>
+				
+
+			</div>
+		</div>
+	</div>
 {% endblock %}

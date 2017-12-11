@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'm2&%_a&3g@feir^zd0t1d3x)l2&un-m#2@u@#@d5bmym27ub0w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,21 +52,25 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
+    'social.apps.django_app.middleware.SocialAuthExceptionMiddleware',
 ]
 
+ROOT_URLCONF = 'googleAuth.urls'
+LOGIN_REDIRECT_URL = 'home'
 
-GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = 'client_secret3.json'
-#print(GOOGLE_OAUTH2_CLIENT_SECRETS_JSON)
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '297044961171-aqakq012f69ldcmvk2tvd2cvsj2qbml3.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'jce2LA5SijME25lzol5CwXj7'
+#GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = 'colocar json'
+
+
+#SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'colocar key'
+#SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'colocar senha'
 SOCIAL_AUTH_USER_MODEL= 'auth.User'
 GOOGLE_WHITE_LISTED_DOMAINS = ['inf.ufsm.br']
+SOCIAL_AUTH_GOOGLE_OAUTH2_WHITELISTED_DOMAINS = ['inf.ufsm.br']
 
 
-ROOT_URLCONF = 'googleAuth.urls'
-LOGIN_REDIRECT_URL = '/home/'
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/login-error/'
+
 
 TEMPLATES = [
     {
@@ -127,9 +132,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -142,6 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
